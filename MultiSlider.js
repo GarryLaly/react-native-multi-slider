@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient'
 
 import {
   StyleSheet,
@@ -549,37 +548,15 @@ export default class MultiSlider extends React.Component {
     const body = (
       <React.Fragment>
         <View style={[styles.fullTrack, { width: sliderLength }]}>
-          {twoMarkers ? <View
+          <View
             style={[
-               styles.track,
-               this.props.trackStyle,
-               trackOneStyle,
-               { width: trackOneLength },
-            ]}
-          /> : <LinearGradient
-           style={[
               styles.track,
               this.props.trackStyle,
               trackOneStyle,
               { width: trackOneLength },
-           ]}
-           colors={this.props.trackGradientColors || ['white', 'chocolate']}
-           start={{ x: 0, y: 0 }}
-           end={{ x: 1, y: 0 }}
+            ]}
           />
-          }
-          {twoMarkers ? <LinearGradient
-            style={[
-              styles.track,
-              this.props.trackStyle,
-              trackTwoStyle,
-              { width: trackTwoLength },
-            ]}
-            colors={this.props.trackGradientColors || ['white', 'chocolate']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            {...(twoMarkers ? this._panResponderBetween.panHandlers : {})}
-          /> : <View
+          <View
             style={[
               styles.track,
               this.props.trackStyle,
@@ -587,7 +564,7 @@ export default class MultiSlider extends React.Component {
               { width: trackTwoLength },
             ]}
             {...(twoMarkers ? this._panResponderBetween.panHandlers : {})}
-          />}
+          />
           {twoMarkers && (
             <View
               style={[
