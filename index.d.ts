@@ -37,6 +37,7 @@ export interface LabelProps {
 
 export interface MultiSliderProps {
     values?: number[];
+    trackGradientColors?: string[];
 
     onValuesChange?: (values: number[]) => void;
     onValuesChangeStart?: () => void;
