@@ -7,7 +7,6 @@ import {
   View,
   Platform,
   Dimensions,
-  I18nManager,
   ImageBackground,
 } from 'react-native';
 
@@ -54,6 +53,7 @@ export default class MultiSlider extends React.Component {
     minMarkerOverlapDistance: 0,
     minMarkerOverlapStepDistance: 0,
     testID: '',
+    isRTL: false,
   };
 
   constructor(props) {
@@ -193,7 +193,7 @@ export default class MultiSlider extends React.Component {
       ? gestureState.dx
       : gestureState.dy;
 
-    const unconfined = I18nManager.isRTL
+    const unconfined = this.props.isRTL
       ? this.state.pastOne - accumDistance
       : accumDistance + this.state.pastOne;
     var bottom = this.props.markerSize / 2;
@@ -266,7 +266,7 @@ export default class MultiSlider extends React.Component {
       ? gestureState.dx
       : gestureState.dy;
 
-    const unconfined = I18nManager.isRTL
+    const unconfined = this.props.isRTL
       ? this.state.pastTwo - accumDistance
       : accumDistance + this.state.pastTwo;
     var bottom =
